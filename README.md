@@ -1,8 +1,10 @@
 # Keycloak Howto
 
+
+## Install a Wildfly with Keycloak Adapter
 Based on: https://github.com/jboss-dockerfiles/wildfly
 
-
+## Manual steps
 1 Run Dockerimage with Keycloak adapter 
 ```shell
 docker run -p 8080:8080 -p 9990:9990 -it jboss/keycloak-adapter-wildfly /opt/jboss/wildfly/bin/standalone.sh -bmanagement 0.0.0.0
@@ -23,7 +25,7 @@ docker exec -it <container-id> wildfly/bin/add-user.sh
 localhost:9990/console
 ```
 
-# Build Dockerfile 
+### Build Dockerfile 
 
 Build that image:
 
@@ -43,4 +45,10 @@ Login with:
 # username: admin
 # password: admin
 http://localhost:9990
+```
+
+## Install Keycloak 
+
+```shell
+docker run -p 8181:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin jboss/keycloak
 ```
